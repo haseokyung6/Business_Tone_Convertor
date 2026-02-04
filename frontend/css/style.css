@@ -1,0 +1,259 @@
+:root {
+    --primary-color: #4A90E2;
+    --primary-hover: #357ABD;
+    --bg-color: #F5F7FA;
+    --text-color: #333333;
+    --white: #FFFFFF;
+    --border-color: #E0E6ED;
+    --success-color: #50E3C2;
+    --error-color: #D0021B;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --radius: 8px;
+    --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Controls Section */
+.controls {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.controls h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.persona-selector {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.persona-btn {
+    background: var(--white);
+    border: 2px solid var(--border-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-family);
+}
+
+.persona-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.persona-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+    font-weight: 600;
+}
+
+/* Converter Area */
+.converter-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    flex: 1;
+}
+
+.card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+
+.card-header {
+    margin-bottom: 1rem;
+}
+
+.card-header label {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+textarea, .output-box {
+    width: 100%;
+    flex: 1;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: var(--font-family);
+    resize: none;
+    line-height: 1.6;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.output-box {
+    background-color: #FAFAFA;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    color: #555;
+}
+
+.card-footer {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-footer.right-align {
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+#charCount {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Buttons */
+.primary-btn, .secondary-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: var(--font-family);
+    transition: background-color 0.2s;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+.secondary-btn {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.secondary-btn:hover:not(:disabled) {
+    background-color: #E2E8F0;
+}
+
+.secondary-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Feedback Message */
+.feedback-msg {
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.feedback-msg.success {
+    color: var(--primary-color); /* Success looks good in primary blue or distinct green */
+    opacity: 1;
+}
+
+.feedback-msg.error {
+    color: var(--error-color);
+    opacity: 1;
+}
+
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Loading Spinner */
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .converter-area {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .card {
+        height: 400px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+}
