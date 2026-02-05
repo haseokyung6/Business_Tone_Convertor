@@ -66,7 +66,7 @@ def convert_text():
                     "content": original_text
                 }
             ],
-            model="llama-3.1-8b-instant", # Using a fast, efficient model available on Groq
+            model="meta-llama/llama-4-scout-17b-16e-instruct", # Using a fast, efficient model available on Groq
             temperature=0.7,
             max_tokens=1024,
         )
