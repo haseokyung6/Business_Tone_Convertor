@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // State
     let selectedPersona = 'boss'; // default
     const MAX_CHARS = 500;
-    const API_URL = 'http://127.0.0.1:5000/api/convert';
+    const API_URL = '/api/convert';
 
     // 1. Persona Selection
     personaBtns.forEach(btn => {
